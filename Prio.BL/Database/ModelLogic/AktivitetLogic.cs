@@ -39,7 +39,13 @@ namespace Prio.BL.Database.ModelLogic
         public void UpdateAktivitet(int key, AktivitetModel model)
         {
             var oldModel = aktivitetDb.Find<AktivitetModel>(x => x.Key == key).First();
-            UpdateProperty("IsDailyReoccurence", oldModel.Id, model.IsDailyReoccurence.ToString());
+            UpdateProperty("Måndag", oldModel.Id, model.Måndag.ToString());
+            UpdateProperty("Tisdag", oldModel.Id, model.Tisdag.ToString());
+            UpdateProperty("Onsdag", oldModel.Id, model.Onsdag.ToString());
+            UpdateProperty("Torsdag", oldModel.Id, model.Torsdag.ToString());
+            UpdateProperty("Fredag", oldModel.Id, model.Fredag.ToString());
+            UpdateProperty("Lördag", oldModel.Id, model.Lördag.ToString());
+            UpdateProperty("Söndag", oldModel.Id, model.Söndag.ToString());
             UpdateProperty("TitelPåAktivitet", oldModel.Id, model.TitelPåAktivitet.ToString());
             UpdateProperty("Prioritet", oldModel.Id, model.Prioritet.ToString());
 

@@ -40,6 +40,34 @@ namespace Prio.BL.MainLogic
                 var viewModel = new ToDoViewModel { toDoModel = toDoModel, aktivitetModel = aktiviteter.First(x => x.Key == toDoModel.AktivitetKey) };
                 toDoViewModels.Add(viewModel);
             }
+            if(DateTime.Now.DayOfWeek == DayOfWeek.Monday)
+            {
+                toDoViewModels = toDoViewModels.Where(x => x.aktivitetModel.Måndag == true).ToList();
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Tuesday)
+            {
+                toDoViewModels = toDoViewModels.Where(x => x.aktivitetModel.Tisdag == true).ToList();
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday)
+            {
+                toDoViewModels = toDoViewModels.Where(x => x.aktivitetModel.Onsdag == true).ToList();
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Thursday)
+            {
+                toDoViewModels = toDoViewModels.Where(x => x.aktivitetModel.Torsdag == true).ToList();
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Friday)
+            {
+                toDoViewModels = toDoViewModels.Where(x => x.aktivitetModel.Fredag == true).ToList();
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
+            {
+                toDoViewModels = toDoViewModels.Where(x => x.aktivitetModel.Lördag == true).ToList();
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
+            {
+                toDoViewModels = toDoViewModels.Where(x => x.aktivitetModel.Söndag == true).ToList();
+            }
             return toDoViewModels;
         }
         public List<AktivitetModel> GetAllAktiviteter()

@@ -14,10 +14,15 @@
         <br />
         @Html.TextBoxFor(x => x.Prioritet)
         <br />
-        <b>Är detta något som upprepas dagligen:</b>
-        @Html.CheckBoxFor(x => x.IsDailyReoccurence) <br />
+        <b>@Html.CheckBoxFor(x => x.Måndag) Måndag</b><br />
+        <b>@Html.CheckBoxFor(x => x.Tisdag) Tisdag</b><br />
+        <b>@Html.CheckBoxFor(x => x.Onsdag) Onsdag</b><br />
+        <b>@Html.CheckBoxFor(x => x.Torsdag) Torsdag</b><br />
+        <b>@Html.CheckBoxFor(x => x.Fredag) Fredag</b><br />
+        <b>@Html.CheckBoxFor(x => x.Lördag) Lördag</b><br />
+        <b>@Html.CheckBoxFor(x => x.Söndag) Söndag</b><br />
         @Html.HiddenFor(x => x.Key)
-        
+
         <input type="submit" value="Spara ändringar" class="btn btn-info w-100" />
 
     }
