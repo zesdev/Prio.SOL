@@ -1,0 +1,1 @@
+viewmodel för todos som inkluderar en faktisk aktivitet i sig

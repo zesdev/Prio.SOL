@@ -1,0 +1,35 @@
+﻿@model List<Prio.BL.ViewModels.ToDoViewModel>
+
+@if(Model.Count == 0)
+{
+    <h1>Allt är klart, bra gjort!</h1>
+}
+
+@foreach (var todoViewModel in Model)
+{
+    @if (todoViewModel.aktivitetModel.Prioritet <= 3)
+    {
+        <div class="alert alert-success">
+            <b>@todoViewModel.aktivitetModel.TitelPåAktivitet.ToUpper()</b>
+            <br />
+            <input type="button" class="btn btn-success" onclick="location.href = '../todo/done?key=@todoViewModel.toDoModel.AktivitetKey'" value="Klar" /><br />
+        </div>
+    }
+    else if (todoViewModel.aktivitetModel.Prioritet <= 7)
+    {
+        <div class="alert alert-primary">
+            <b>@todoViewModel.aktivitetModel.TitelPåAktivitet.ToUpper()</b>
+            <br />
+            <input type="button" class="btn btn-success" onclick="location.href = '../todo/done?key=@todoViewModel.toDoModel.AktivitetKey'" value="Klar" /><br />
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            <b>@todoViewModel.aktivitetModel.TitelPåAktivitet.ToUpper()</b>
+            <br />
+            <input type="button" class="btn btn-success" onclick="location.href = '../todo/done?key=@todoViewModel.toDoModel.AktivitetKey'" value="Klar" /><br />
+        </div>
+    }
+    <br />
+}

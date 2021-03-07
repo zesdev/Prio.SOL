@@ -1,0 +1,24 @@
+﻿@model Prio.BL.Database.Models.AktivitetModel
+
+<center>
+    <input type="button" class="btn btn bg-danger w-100" onclick="location.href='../aktivitet/index'" value="Gå tillbaka" />
+    <h1>Redigerar aktiviteten med titeln: @Model.TitelPåAktivitet</h1>
+    <br />
+    @using (Html.BeginForm())
+    {
+        <b>Titel på aktiviteten:</b>
+        <br />
+        @Html.TextBoxFor(x => x.TitelPåAktivitet)
+        <br />
+        <b>Prioritet</b>
+        <br />
+        @Html.TextBoxFor(x => x.Prioritet)
+        <br />
+        <b>Är detta något som upprepas dagligen:</b>
+        @Html.CheckBoxFor(x => x.IsDailyReoccurence) <br />
+        @Html.HiddenFor(x => x.Key)
+        
+        <input type="submit" value="Spara ändringar" class="btn btn-info w-100" />
+
+    }
+</center>

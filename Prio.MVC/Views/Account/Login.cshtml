@@ -1,0 +1,18 @@
+﻿@model Prio.MVC.Models.UserViewModel
+
+<center>
+    @using (Html.BeginForm())
+    {
+        <b>Användarnamn</b><br />
+        @Html.TextBoxFor(x => x.Username)
+        <br />
+        <b>Lösenord</b><br />
+        @Html.PasswordFor(x => x.Password)<br />
+        <br />
+        <input type="submit" value="Logga In" class="btn btn-primary" />
+        <br />
+        <br />
+        <b style="color:red;">@ViewBag.errorMessage</b>
+
+    }
+</center>

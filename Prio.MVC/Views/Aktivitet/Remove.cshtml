@@ -1,0 +1,11 @@
+﻿@model Prio.BL.Database.Models.AktivitetModel
+
+<h1>Du tar nu bort följande aktivitet:</h1>
+
+@using (Html.BeginForm())
+{
+    <b>Titel på aktivitet : </b> @Model.TitelPåAktivitet<br />
+    @Html.HiddenFor(x => x.Key);
+    <h1>Tryck på knapp för att ta bort</h1><br />
+    <input type="submit" value="Ta bort aktivteten" class="w-100 btn btn-danger" />
+}

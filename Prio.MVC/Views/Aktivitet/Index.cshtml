@@ -1,0 +1,37 @@
+﻿@model List<Prio.BL.Database.Models.AktivitetModel>
+
+<center>
+    <input type="button" class="btn btn-success w-100" value="Lägg till ny Aktivitet" onclick="location.href='../aktivitet/addnew'" /><br /><br />
+
+    @foreach (var aktivitet in Model)
+    {
+        if (aktivitet.Prioritet <= 3)
+        {
+<div class="alert alert-success">
+    <b>@aktivitet.TitelPåAktivitet</b>
+    <br />
+    <input type="button" class="btn btn-info" onclick="location.href = '../aktivitet/edit?key=@aktivitet.Key'" value="Redigera" />
+    <input type="button" class="btn btn-danger" value="Ta bort" onclick="location.href = '../aktivitet/remove?key=@aktivitet.Key'" />
+</div>
+        }
+        else if (aktivitet.Prioritet <= 7)
+        {
+<div class="alert alert-primary">
+    <b>@aktivitet.TitelPåAktivitet</b>
+    <br />
+    <input type="button" class="btn btn-info" onclick="location.href = '../aktivitet/edit?key=@aktivitet.Key'" value="Redigera" />
+    <input type="button" class="btn btn-danger" value="Ta bort" onclick="location.href = '../aktivitet/remove?key=@aktivitet.Key'" />
+</div>
+        }
+        else
+        {
+<div class="alert alert-warning">
+    <b>@aktivitet.TitelPåAktivitet</b>
+    <br />
+    <input type="button" class="btn btn-info" onclick="location.href = '../aktivitet/edit?key=@aktivitet.Key'" value="Redigera" /> 
+    <input type="button" class="btn btn-danger" value="Ta bort" onclick="location.href = '../aktivitet/remove?key=@aktivitet.Key'" />
+</div>
+        }
+        <br />
+    }
+</center>
