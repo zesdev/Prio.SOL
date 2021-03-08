@@ -12,5 +12,6 @@ namespace Prio.BL.MainLogic
         void UpdateAktivitet(int key, AktivitetModel model);
         void UpdateToDo(int aktivitetsKey);
         void AddNew(AktivitetModel model);
+        int GetTotalActivitiesForDay();
     }
 }

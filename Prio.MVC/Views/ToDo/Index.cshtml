@@ -4,6 +4,13 @@
 {
     <h1>Allt är klart, bra gjort!</h1>
 }
+else
+{
+<h1>
+    @ViewBag.isDone
+    Är Gjorda
+</h1>
+}
 
 @foreach (var todoViewModel in Model)
 {

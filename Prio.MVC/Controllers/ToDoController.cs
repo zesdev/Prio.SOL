@@ -18,8 +18,10 @@ namespace Prio.MVC.Controllers
         }
         public IActionResult Index()
         {
+            var aktiviteterCountOfDay = mainLogic.GetTotalActivitiesForDay();
             var models = mainLogic.GetDailyToDos();
             var filteredmodels = models.Where(x => x.toDoModel.IsDone == false).OrderBy(x => x.aktivitetModel.Prioritet).ToList();
+            ViewBag.isDone = (aktiviteterCountOfDay-filteredmodels.Count).ToString() + "/" + aktiviteterCountOfDay.ToString();
             return View(filteredmodels);
         }
         public IActionResult Done(int key)

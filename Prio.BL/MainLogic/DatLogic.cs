@@ -91,5 +91,38 @@ namespace Prio.BL.MainLogic
         {
             aktivitetsLogic.AddNewAktivitet(model);
         }
+
+        public int GetTotalActivitiesForDay()
+        {
+            var aktiviteter = GetAllAktiviteter();
+            if(DateTime.Now.DayOfWeek == DayOfWeek.Monday)
+            {
+                return aktiviteter.Where(x => x.Måndag == true).ToList().Count;
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Tuesday)
+            {
+                return aktiviteter.Where(x => x.Tisdag == true).ToList().Count;
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday)
+            {
+                return aktiviteter.Where(x => x.Onsdag == true).ToList().Count;
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Thursday)
+            {
+                return aktiviteter.Where(x => x.Torsdag == true).ToList().Count;
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Friday)
+            {
+                return aktiviteter.Where(x => x.Fredag == true).ToList().Count;
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
+            {
+                return aktiviteter.Where(x => x.Lördag == true).ToList().Count;
+            }
+            else
+            {
+                return aktiviteter.Where(x => x.Söndag == true).ToList().Count;
+            }
+        }
     }
 }
