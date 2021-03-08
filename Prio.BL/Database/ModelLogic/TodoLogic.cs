@@ -29,7 +29,11 @@ namespace Prio.BL.Database.ModelLogic
         public void AddNewToDo(ToDoModel model)
         {
             model.DateCreated = DateTime.Now;
-            toDoDb.InsertOne(model);
+            var dailyToDos = GetDailyToDos();
+            if (dailyToDos.Where(x => x.AktivitetKey == model.AktivitetKey).ToList().Count < 1 )
+            {
+                toDoDb.InsertOne(model);
+            }
         }
         public void UpdateToDo(int aktivitetKey)
         {
