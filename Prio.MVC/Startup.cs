@@ -36,10 +36,12 @@ namespace Prio.MVC
             var context = new PrioContext(username, password);
             var toDoLogic = new TodoLogic(context);
             var aktivitetLogic = new AktivitetLogic(context, toDoLogic);
-            var mainLogic = new DatLogic(aktivitetLogic, toDoLogic);
+            var handlingLogic = new HandlingslistaLogic(context);
+            var mainLogic = new DatLogic(aktivitetLogic, toDoLogic, handlingLogic);
 
             services.Add(new ServiceDescriptor(typeof(ITodoLogic), toDoLogic));
             services.Add(new ServiceDescriptor(typeof(IAktivitetLogic), aktivitetLogic));
+            services.Add(new ServiceDescriptor(typeof(IHandlingslistaLogic), handlingLogic));
             services.Add(new ServiceDescriptor(typeof(IDatLogic), mainLogic));
 
             services.AddControllersWithViews();

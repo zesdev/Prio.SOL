@@ -3,6 +3,7 @@ using MongoDB.Driver;
 using Prio.BL.Database.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Prio.BL.Database.ModelLogic
@@ -27,7 +28,14 @@ namespace Prio.BL.Database.ModelLogic
         }
         public void AddNewAktivitet(AktivitetModel model)
         {
-            var key = GetAllAktiviteter().Count + 1;
+            var key = 0;
+            try
+            {
+                key = GetAllAktiviteter().LastOrDefault().Key+1;
+            }
+            catch
+            {
+            }
             model.Key = key;
             aktivitetDb.InsertOne(model);
         }

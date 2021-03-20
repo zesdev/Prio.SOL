@@ -12,11 +12,13 @@ namespace Prio.BL.MainLogic
     {
         AktivitetLogic aktivitetsLogic;
         TodoLogic toDoLogic;
+        HandlingslistaLogic handlingLogic;
 
-        public DatLogic(AktivitetLogic _aktivitetsLogic, TodoLogic _toDoLogic)
+        public DatLogic(AktivitetLogic _aktivitetsLogic, TodoLogic _toDoLogic, HandlingslistaLogic _handlingLogic)
         {
             aktivitetsLogic = _aktivitetsLogic;
             toDoLogic = _toDoLogic;
+            handlingLogic = _handlingLogic;
         }
 
         public List<ToDoViewModel> GetDailyToDos()
@@ -123,6 +125,26 @@ namespace Prio.BL.MainLogic
             {
                 return aktiviteter.Where(x => x.Söndag == true).ToList().Count;
             }
+        }
+
+        public List<HandlingItemModel> GetHandlingItems()
+        {
+            return handlingLogic.GetItems();
+        }
+
+        public void RemoveHandlingItem(int key)
+        {
+            handlingLogic.RemoveItem(key);
+        }
+
+        public void AddHandlingItem(HandlingItemModel model)
+        {
+            handlingLogic.AddNewHandlingItem(model);
+        }
+
+        public void UpdateHandlingItem(HandlingItemModel model)
+        {
+            handlingLogic.UpdateItem(model);
         }
     }
 }

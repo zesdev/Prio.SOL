@@ -13,5 +13,9 @@ namespace Prio.BL.MainLogic
         void UpdateToDo(int aktivitetsKey);
         void AddNew(AktivitetModel model);
         int GetTotalActivitiesForDay();
+        List<HandlingItemModel> GetHandlingItems();
+        void RemoveHandlingItem(int key);
+        void AddHandlingItem(HandlingItemModel model);
+        void UpdateHandlingItem(HandlingItemModel model);
     }
 }

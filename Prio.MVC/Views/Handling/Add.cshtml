@@ -1,0 +1,20 @@
+﻿@model Prio.BL.Database.Models.HandlingItemModel
+
+<center>
+    <input type="button" class="btn btn bg-danger" onclick="location.href='../aktivitet/index'" value="Gå tillbaka" />
+    <br />
+    @using (Html.BeginForm())
+    {
+        <b>Titel på varan:</b>
+        <br />
+        @Html.TextBoxFor(x => x.Title)
+        <br />
+        <b>Antal</b>
+        <br />
+        @Html.TextBoxFor(x => x.Antal)
+
+        <br />
+        <input type="submit" value="Lägg till" class="btn btn-success" />
+
+    }
+</center>

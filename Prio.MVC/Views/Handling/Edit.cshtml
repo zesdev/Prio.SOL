@@ -1,0 +1,22 @@
+﻿@model Prio.BL.Database.Models.HandlingItemModel
+
+<center>
+    <input type="button" class="btn btn bg-danger w-100" onclick="location.href='../handling/index'" value="Gå tillbaka" />
+    <h1>Redigerar aktiviteten med titeln: @Model.Title</h1>
+    <br />
+    @using (Html.BeginForm())
+    {
+        <b>Titel på varan:</b>
+        <br />
+        @Html.TextBoxFor(x => x.Title)
+        <br />
+        <b>Antal</b>
+        <br />
+        @Html.TextBoxFor(x => x.Antal)
+        <br />
+        @Html.HiddenFor(x => x.Key)
+
+        <input type="submit" value="Spara ändringar" class="btn btn-info w-100" />
+
+    }
+</center>

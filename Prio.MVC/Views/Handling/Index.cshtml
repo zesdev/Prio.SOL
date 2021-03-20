@@ -1,0 +1,17 @@
+﻿@model List<Prio.BL.Database.Models.HandlingItemModel>
+
+<center>
+    <input type="button" class="btn btn-success w-100" value="Lägg till ny vara" onclick="location.href='../handling/add'" /><br /><br />
+
+    @foreach (var item in Model)
+    {
+
+            <div class="alert alert-success">
+                <b>@item.Antal - @item.Title</b>
+                <br />
+                <input type="button" class="btn btn-info" onclick="location.href = '../handling/edit?key=@item.Key'" value="Redigera" />
+                <input type="button" class="btn btn-danger" value="Ta bort" onclick="location.href = '../handling/remove?key=@item.Key'" />
+            </div>
+
+    }
+</center>
